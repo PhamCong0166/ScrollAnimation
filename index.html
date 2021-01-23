@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Scroll Animation</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="1.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Scroll To See Animation</h1>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+  </body>
+  <script>
+    const boxes = document.querySelectorAll(".box");
+
+    window.addEventListener("scroll", checkBoxes);
+
+    checkBoxes();
+
+    function checkBoxes() {
+	  const triggerBottom = (window.innerHeight / 5) * 4;
+	  console.log("height:" +triggerBottom)
+
+      boxes.forEach((box) => {
+		const boxTop = box.getBoundingClientRect().top;
+		console.log(boxTop)
+        if (boxTop < triggerBottom) {
+          box.classList.add("show");
+        } else {
+          box.classList.remove("show");
+        }
+      });
+    }
+  </script>
+</html>
